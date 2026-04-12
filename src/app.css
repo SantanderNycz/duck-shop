@@ -1,0 +1,146 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800;900&display=swap');
+@import "tailwindcss";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Duck Shop — Paleta Tech & Leveza */
+  --background: hsl(222 43% 98%);
+  --foreground: hsl(240 28% 14%);
+  --card: hsl(0 0% 100%);
+  --card-foreground: hsl(240 28% 14%);
+  --popover: hsl(0 0% 100%);
+  --popover-foreground: hsl(240 28% 14%);
+  --primary: hsl(244 100% 70%);
+  --primary-foreground: hsl(0 0% 100%);
+  --secondary: hsl(210 40% 96%);
+  --secondary-foreground: hsl(240 28% 14%);
+  --muted: hsl(220 20% 96%);
+  --muted-foreground: hsl(215 16% 47%);
+  --accent: hsl(167 100% 42%);
+  --accent-foreground: hsl(0 0% 100%);
+  --destructive: hsl(0 100% 71%);
+  --destructive-foreground: hsl(0 0% 98%);
+  --border: hsl(220 20% 91%);
+  --input: hsl(220 20% 91%);
+  --ring: hsl(244 100% 70%);
+  --radius: 0.875rem;
+}
+
+.dark {
+  --background: hsl(240 28% 10%);
+  --foreground: hsl(222 43% 97%);
+  --card: hsl(240 28% 14%);
+  --card-foreground: hsl(222 43% 97%);
+  --popover: hsl(240 28% 14%);
+  --popover-foreground: hsl(222 43% 97%);
+  --primary: hsl(244 100% 75%);
+  --primary-foreground: hsl(0 0% 100%);
+  --secondary: hsl(240 28% 18%);
+  --secondary-foreground: hsl(222 43% 97%);
+  --muted: hsl(240 28% 18%);
+  --muted-foreground: hsl(215 16% 65%);
+  --accent: hsl(167 100% 42%);
+  --accent-foreground: hsl(0 0% 100%);
+  --destructive: hsl(0 84% 60%);
+  --destructive-foreground: hsl(0 0% 98%);
+  --border: hsl(240 28% 22%);
+  --input: hsl(240 28% 22%);
+  --ring: hsl(244 100% 70%);
+}
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --font-sans: "Inter", system-ui, sans-serif;
+  --font-display: "Plus Jakarta Sans", "Inter", system-ui, sans-serif;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: "Inter", system-ui, sans-serif;
+  }
+
+  h1, h2, h3 {
+    font-family: "Plus Jakarta Sans", "Inter", system-ui, sans-serif;
+  }
+
+  @keyframes shimmer {
+    0% { background-position: -1000px 0; }
+    100% { background-position: 1000px 0; }
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+
+  @keyframes slideDown {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes gradient {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+  }
+
+  @keyframes bounceIn {
+    0% { transform: scale(0); opacity: 0; }
+    60% { transform: scale(1.2); }
+    100% { transform: scale(1); opacity: 1; }
+  }
+
+  @keyframes toastIn {
+    0% { opacity: 0; transform: translateY(1rem); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes toastOut {
+    0% { opacity: 1; transform: translateY(0); }
+    100% { opacity: 0; transform: translateY(1rem); }
+  }
+
+  .animate-shimmer {
+    animation: shimmer 2s infinite linear;
+    background: linear-gradient(to right, transparent 0%, rgba(255,255,255,0.3) 50%, transparent 100%);
+    background-size: 1000px 100%;
+  }
+  .animate-float { animation: float 3s ease-in-out infinite; }
+  .animate-slide-down { animation: slideDown 0.3s ease-out; }
+  .animate-gradient {
+    background-size: 200% 200%;
+    animation: gradient 3s ease infinite;
+  }
+  .animate-bounce-in { animation: bounceIn 0.4s cubic-bezier(.36,.07,.19,.97) both; }
+  .animate-toast-in { animation: toastIn 0.3s ease-out both; }
+  .animate-toast-out { animation: toastOut 0.3s ease-in both; }
+
+  .bg-grid-pattern {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='32' height='32' fill='none' stroke='rgb(108 99 255 / 0.04)'%3e%3cpath d='M0 .5H31.5V32'/%3e%3c/svg%3e");
+  }
+}
