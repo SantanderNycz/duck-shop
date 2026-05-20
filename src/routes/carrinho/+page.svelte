@@ -1,6 +1,6 @@
 <script lang="ts">
   import { cart } from '$lib/stores/cart.svelte';
-  import { Trash, Plus, Minus, ShoppingBag, Tag, ArrowRight, Truck, Ticket } from 'phosphor-svelte';
+  import { Trash, Plus, Minus, ShoppingBag, Tag, ArrowRight, Truck, Ticket, CheckCircle } from 'phosphor-svelte';
 
   const formatPrice = (price: number) =>
     price.toLocaleString('pt-PT', { style: 'currency', currency: 'EUR' });
@@ -148,7 +148,8 @@
           {#if couponApplied}
             <div class="flex items-center justify-between rounded-xl bg-accent/10 border border-accent/30 px-4 py-3">
               <div class="flex items-center gap-2 text-accent font-semibold text-sm">
-                <span>🎉 DUCK10 aplicado — 10% de desconto!</span>
+                <CheckCircle size={16} weight="duotone" />
+                <span>DUCK10 aplicado — 10% de desconto!</span>
               </div>
               <button onclick={removeCoupon} class="text-xs text-muted-foreground hover:text-foreground underline">Remover</button>
             </div>
@@ -216,7 +217,10 @@
                 </span>
               </div>
               {#if couponApplied}
-                <p class="mt-1 text-xs text-accent text-right">Poupaste {formatPrice(discount)}! 🎉</p>
+                <p class="mt-1 flex items-center justify-end gap-1 text-xs text-accent">
+                <CheckCircle size={12} weight="duotone" />
+                Poupaste {formatPrice(discount)}!
+              </p>
               {/if}
             </div>
 

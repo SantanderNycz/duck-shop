@@ -1,7 +1,7 @@
 <script lang="ts">
   import { products } from '$lib/data/products';
   import ProductCard from '$lib/components/product-card.svelte';
-  import { MagnifyingGlass, Funnel, X, SortAscending } from 'phosphor-svelte';
+  import { MagnifyingGlass, Funnel, X, SortAscending, Bird } from 'phosphor-svelte';
   import { page } from '$app/stores';
   import ProductCardSkeleton from '$lib/components/product-card-skeleton.svelte';
   import { onMount } from 'svelte';
@@ -281,7 +281,9 @@
         </div>
       {:else if filteredProducts.length === 0}
         <div class="flex flex-col items-center justify-center rounded-3xl border-2 border-dashed border-border py-20 text-center">
-          <span class="mb-4 text-6xl">🦆</span>
+          <div class="mb-4 text-muted-foreground/40">
+            <Bird size={64} weight="duotone" />
+          </div>
           <h3 class="mb-2 text-xl font-bold">Nenhum pato encontrado</h3>
           <p class="mb-6 text-muted-foreground">Tenta ajustar os filtros ou pesquisar outra coisa.</p>
           <button onclick={clearFilters} class="rounded-xl bg-primary px-6 py-3 font-semibold text-white hover:bg-primary/90 transition-colors">
@@ -290,11 +292,24 @@
         </div>
       {:else}
         <div class="grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
-          {#each filteredProducts as product (product.id)}
-            <ProductCard {product} />
+          {#each filteredProducts as product, i (product.id)}
+            <div class="stagger-card" style="animation-delay: {Math.min(i, 8) * 60}ms">
+              <ProductCard {product} />
+            </div>
           {/each}
         </div>
       {/if}
     </div>
   </div>
 </div>
+
+<style>
+  .stagger-card {
+    opacity: 0;
+    animation: cardFadeUp 0.4s ease-out both;
+  }
+  @keyframes cardFadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+</style>

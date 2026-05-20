@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { FacebookLogo, InstagramLogo, EnvelopeSimple, MapPin } from 'phosphor-svelte';
+  import { FacebookLogo, InstagramLogo, EnvelopeSimple, MapPin, Bird, CheckCircle } from 'phosphor-svelte';
 
   let email = $state('');
   let subscribed = $state(false);
@@ -63,12 +63,14 @@
       <!-- Newsletter -->
       <div>
         <h3 class="mb-2 font-bold">Newsletter</h3>
-        <p class="mb-4 text-sm text-muted-foreground">
-          Receber novidades de quack em quack 🦆
+        <p class="mb-4 flex items-center gap-1.5 text-sm text-muted-foreground">
+          Receber novidades de quack em quack
+          <Bird size={14} weight="duotone" class="text-primary" />
         </p>
         {#if subscribed}
-          <div class="rounded-xl bg-accent/10 border border-accent/30 p-4 text-sm text-accent font-medium">
-            🎉 Subscrito com sucesso!
+          <div class="flex items-center gap-2 rounded-xl bg-accent/10 border border-accent/30 p-4 text-sm text-accent font-medium">
+            <CheckCircle size={18} weight="duotone" />
+            Subscrito com sucesso!
           </div>
         {:else}
           <form onsubmit={handleNewsletter} class="space-y-2">

@@ -2,7 +2,7 @@
   import { page } from '$app/stores';
   import { products } from '$lib/data/products';
   import { cart } from '$lib/stores/cart.svelte';
-  import { ShoppingCart, ArrowLeft, Check, Heart, ShareNetwork, Star, MapPin } from 'phosphor-svelte';
+  import { ShoppingCart, ArrowLeft, Check, Heart, ShareNetwork, Star, MapPin, Warning, Bird } from 'phosphor-svelte';
   import { toasts } from '$lib/stores/toast';
 
   const productId = parseInt($page.params.id!);
@@ -31,7 +31,7 @@
     if (!product) return;
     cart.addItem(product);
     addedToCart = true;
-    toasts.add(`${product.name} adicionado ao carrinho!`, product.emoji ?? '🦆');
+    toasts.add(`${product.name} adicionado ao carrinho!`);
     setTimeout(() => { addedToCart = false; }, 2000);
   }
 
@@ -39,7 +39,7 @@
     try {
       await navigator.clipboard.writeText(window.location.href);
       shared = true;
-      toasts.add('Link copiado para a área de transferência!', '🔗', 'info');
+      toasts.add('Link copiado para a área de transferência!', 'info');
       setTimeout(() => { shared = false; }, 2000);
     } catch {
       shared = false;
@@ -161,9 +161,9 @@
           </div>
           <!-- Low-stock mock badge — shown for products with odd id as a demo -->
           {#if product.id % 3 === 0}
-            <span class="rounded-xl px-3 py-2 text-xs font-semibold animate-pulse"
+            <span class="inline-flex items-center gap-1.5 rounded-xl px-3 py-2 text-xs font-semibold animate-pulse"
               style="background: hsl(38 92% 50% / 0.12); color: hsl(38 92% 40%); border: 1px solid hsl(38 92% 50% / 0.3)">
-              ⚠️ Apenas 3 restantes!
+              <Warning size={14} weight="duotone" /> Apenas 3 restantes!
             </span>
           {/if}
         {:else}
@@ -292,7 +292,9 @@
 
 {:else}
 <div class="container mx-auto px-4 py-24 text-center">
-  <span class="mb-6 block text-7xl">🦆</span>
+  <div class="mb-6 flex justify-center text-muted-foreground/40">
+    <Bird size={80} weight="duotone" />
+  </div>
   <h1 class="mb-4 text-3xl font-bold">Pato não encontrado</h1>
   <p class="mb-8 text-muted-foreground">Este pato voou para outros ares. Experimenta o nosso catálogo.</p>
   <a href="/produtos" class="inline-flex items-center gap-2 rounded-xl bg-primary px-6 py-3 font-semibold text-white hover:bg-primary/90 transition-colors">

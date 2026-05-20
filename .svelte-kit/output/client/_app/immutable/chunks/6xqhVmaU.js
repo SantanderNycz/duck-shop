@@ -1,0 +1,1 @@
+import{E as u,F as o,H as _,y as t,G as g,I as p,J as i,K as l,L as d,M as E}from"./ziRRfoxS.js";function v(n,r){let s=null,y=t;var a;if(t){s=E;for(var e=g(document.head);e!==null&&(e.nodeType!==p||e.data!==n);)e=i(e);if(e===null)l(!1);else{var f=i(e);e.remove(),d(f)}}t||(a=document.head.appendChild(u()));try{o(()=>r(a),_)}finally{y&&(l(!0),d(s))}}export{v as h};

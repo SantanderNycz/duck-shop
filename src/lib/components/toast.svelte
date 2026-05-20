@@ -2,7 +2,7 @@
   import { toasts } from '$lib/stores/toast';
   import { fly, scale } from 'svelte/transition';
   import { cubicOut } from 'svelte/easing';
-  import { X } from 'phosphor-svelte';
+  import { X, CheckCircle, Info } from 'phosphor-svelte';
 </script>
 
 <!-- Toast container — fixed bottom-right -->
@@ -16,7 +16,13 @@
       <!-- Left accent bar -->
       <div class="absolute left-0 top-2 bottom-2 w-1 rounded-full bg-gradient-to-b from-primary to-accent"></div>
 
-      <span class="text-xl shrink-0 ml-1">{toast.emoji}</span>
+      <span class="shrink-0 ml-1">
+        {#if toast.type === 'success'}
+          <CheckCircle size={20} weight="duotone" class="text-accent" />
+        {:else}
+          <Info size={20} weight="duotone" class="text-primary" />
+        {/if}
+      </span>
 
       <p class="flex-1 text-sm font-medium text-foreground leading-snug">
         {toast.message}

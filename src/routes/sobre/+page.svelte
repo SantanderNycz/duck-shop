@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { ArrowRight, Smiley, Star, Heart, MapPin } from 'phosphor-svelte';
+  import { ArrowRight, Smiley, Star, Heart, MapPin, Bird, Bug, CheckCircle } from 'phosphor-svelte';
 </script>
 
 <svelte:head>
@@ -51,7 +51,9 @@
         </div>
         <div class="relative">
           <div class="rounded-3xl bg-gradient-to-br from-primary/10 to-accent/10 p-12 text-center border border-border/50">
-            <span class="text-9xl block mb-4 animate-float">🦆</span>
+            <div class="mb-4 flex justify-center text-primary animate-float">
+              <Bird size={96} weight="duotone" />
+            </div>
             <p class="text-sm font-medium text-muted-foreground italic">
               "O primeiro pato. A primeira solução."
             </p>
@@ -68,7 +70,11 @@
     <div class="mx-auto max-w-4xl">
       <div class="grid gap-12 md:grid-cols-2 items-center">
         <div class="rounded-3xl border border-border/50 bg-card p-8 shadow-sm">
-          <div class="mb-4 text-6xl">🐛→✅</div>
+          <div class="mb-4 flex items-center gap-2 text-muted-foreground">
+            <Bug size={32} weight="duotone" class="text-orange-500" />
+            <ArrowRight size={18} weight="bold" />
+            <CheckCircle size={32} weight="duotone" class="text-emerald-500" />
+          </div>
           <h3 class="mb-3 text-xl font-bold">O que é o Rubber Duck Debugging?</h3>
           <p class="text-muted-foreground leading-relaxed">
             É uma técnica real usada por programadores de todo o mundo. Ao explicar o código ao pato em voz alta, o cérebro é forçado a articular o problema de forma diferente — e frequentemente encontra a solução sozinho.
@@ -151,7 +157,9 @@
 <!-- CTA final -->
 <section class="py-20 text-center">
   <div class="container mx-auto px-4 max-w-2xl">
-    <span class="mb-6 block text-7xl">🦆</span>
+    <div class="mb-6 flex justify-center text-primary">
+      <Bird size={72} weight="duotone" />
+    </div>
     <h2 class="mb-4 text-3xl font-bold md:text-4xl" style="font-family: 'Plus Jakarta Sans', sans-serif;">
       Encontra o teu pato.
     </h2>

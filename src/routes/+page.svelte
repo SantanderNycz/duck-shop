@@ -1,16 +1,16 @@
 <script lang="ts">
   import { products } from '$lib/data/products';
   import ProductCard from '$lib/components/product-card.svelte';
-  import { ArrowRight, Package, ShieldCheck, Recycle, Smiley, Tag, Code, UsersThree } from 'phosphor-svelte';
+  import { ArrowRight, Package, ShieldCheck, Recycle, Smiley, Tag, Code, UsersThree, Bird, Laptop, Crown, Butterfly, Gift, Flag } from 'phosphor-svelte';
 
   const featured = products.filter(p => p.inStock).slice(0, 6);
 
   const categories = [
-    { name: 'Tech & Geek', emoji: '💻', color: 'from-blue-500/20 to-indigo-500/20', border: 'border-blue-200', badge: 'bg-blue-100 text-blue-700', desc: 'Para developers e geeks' },
-    { name: 'Personagens',  emoji: '🧙', color: 'from-violet-500/20 to-purple-500/20',  border: 'border-violet-200',  badge: 'bg-violet-100 text-violet-700',  desc: 'Ícones pop culture' },
-    { name: 'Animais',      emoji: '🐼', color: 'from-emerald-500/20 to-teal-500/20',   border: 'border-emerald-200', badge: 'bg-emerald-100 text-emerald-700', desc: 'O reino animal' },
-    { name: 'Festividades', emoji: '🎄', color: 'from-orange-500/20 to-amber-500/20',   border: 'border-orange-200',  badge: 'bg-orange-100 text-orange-700',  desc: 'Edições sazonais' },
-    { name: 'Portugal',     emoji: '🇵🇹', color: 'from-red-500/20 to-rose-500/20',      border: 'border-red-200',     badge: 'bg-red-100 text-red-700',        desc: 'Orgulhosamente PT' },
+    { name: 'Tech & Geek', icon: Laptop,    iconColor: 'text-blue-600',    color: 'from-blue-500/20 to-indigo-500/20',    border: 'border-blue-200',    badge: 'bg-blue-100 text-blue-700',    desc: 'Para developers e geeks' },
+    { name: 'Personagens',  icon: Crown,     iconColor: 'text-violet-600',  color: 'from-violet-500/20 to-purple-500/20',  border: 'border-violet-200',  badge: 'bg-violet-100 text-violet-700',  desc: 'Ícones pop culture' },
+    { name: 'Animais',      icon: Butterfly, iconColor: 'text-emerald-600', color: 'from-emerald-500/20 to-teal-500/20',   border: 'border-emerald-200', badge: 'bg-emerald-100 text-emerald-700', desc: 'O reino animal' },
+    { name: 'Festividades', icon: Gift,      iconColor: 'text-orange-600',  color: 'from-orange-500/20 to-amber-500/20',   border: 'border-orange-200',  badge: 'bg-orange-100 text-orange-700',  desc: 'Edições sazonais' },
+    { name: 'Portugal',     icon: Flag,      iconColor: 'text-red-600',     color: 'from-red-500/20 to-rose-500/20',       border: 'border-red-200',     badge: 'bg-red-100 text-red-700',        desc: 'Orgulhosamente PT' },
   ].map(c => ({
     ...c,
     count: products.filter(p => p.category === c.name).length,
@@ -29,7 +29,7 @@
   <div class="container relative mx-auto px-4 py-20 md:py-36">
     <div class="mx-auto max-w-4xl text-center">
       <div class="mb-6 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-4 py-2 text-sm font-medium text-primary backdrop-blur-sm animate-slide-down">
-        <span class="text-base">🦆</span>
+        <Bird size={18} weight="duotone" />
         <span>Novidades toda semana · Porto, Portugal</span>
       </div>
 
@@ -159,8 +159,8 @@
           href={`/produtos?categoria=${encodeURIComponent(cat.name)}`}
           class="group flex flex-col items-center gap-3 rounded-2xl border bg-gradient-to-br p-6 text-center transition-all duration-300 hover:-translate-y-1 hover:shadow-lg {cat.border} {cat.color}"
         >
-          <span class="text-4xl transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6">
-            {cat.emoji}
+          <span class="transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6 {cat.iconColor}">
+            <svelte:component this={cat.icon} size={36} weight="duotone" />
           </span>
           <div>
             <p class="font-bold text-sm text-foreground">{cat.name}</p>

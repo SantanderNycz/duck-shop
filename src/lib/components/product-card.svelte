@@ -16,7 +16,7 @@
   function handleAddToCart() {
     cart.addItem(product);
     addedToCart = true;
-    toasts.add(`${product.name} adicionado ao carrinho!`, product.emoji ?? '🦆');
+    toasts.add(`${product.name} adicionado ao carrinho!`);
     setTimeout(() => { addedToCart = false; }, 1800);
   }
 
