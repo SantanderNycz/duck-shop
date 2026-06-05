@@ -1,6 +1,6 @@
 # 🦆 Duck-Shop
 
-Duck-Shop é um **modelo de e-commerce funcional** desenvolvido como projeto de portfólio. Inspirado e estruturado a partir do **modelo da FourFront**, ele foi construído para demonstrar habilidades em **front-end**, **animações interativas**, **estrutura de produto** e **experiência do usuário**.
+Duck-Shop é um **modelo de e-commerce funcional** desenvolvido como projeto de portfólio. Inspirado e estruturado a partir do **modelo da Void Studio**, ele foi construído para demonstrar habilidades em **front-end**, **animações interativas**, **estrutura de produto** e **experiência do usuário**.
 
 ---
 
@@ -14,7 +14,7 @@ Este projeto serve como um exemplo de como um e-commerce pode ser estruturado de
 - Animações sutis e interativas para melhorar a experiência do usuário
 - Estrutura limpa e modular, seguindo boas práticas de desenvolvimento front-end
 
-> O Duck-Shop é inspirado no modelo de e-commerce produzido pela **FourFront**, conhecido por criar interfaces modernas e intuitivas para lojas online. O projeto replica a lógica de organização de produtos, navegação e layout responsivo, oferecendo uma base prática para quem deseja aprender ou demonstrar habilidades em desenvolvimento web.
+> O Duck-Shop é inspirado no modelo de e-commerce produzido pela **Void Studio**, conhecido por criar interfaces modernas e intuitivas para lojas online. O projeto replica a lógica de organização de produtos, navegação e layout responsivo, oferecendo uma base prática para quem deseja aprender ou demonstrar habilidades em desenvolvimento web.
 
 ---
 

@@ -97,7 +97,7 @@
       <p>© {new Date().getFullYear()} Duck Shop · Todos os direitos reservados.</p>
       <p>
         Desenvolvido por
-        <a href="https://four-front.vercel.app/" class="text-accent hover:underline ml-1">4Front</a>
+        <a href="https://void-studio-vs.vercel.app/" class="text-accent hover:underline ml-1">Void Studio</a>
       </p>
     </div>
   </div>
