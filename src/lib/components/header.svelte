@@ -42,7 +42,7 @@
       <div class="relative flex h-9 w-9 items-center justify-center rounded-xl bg-linear-to-br from-primary to-accent shadow-lg shadow-primary/20 transition-all duration-300 group-hover:shadow-xl group-hover:shadow-primary/30 group-hover:scale-105">
         <img src="/duck.svg" alt="Duck Shop logo" class="h-10 w-10" />
       </div>
-      <span class="text-xl font-bold bg-linear-to-r from-primary to-accent bg-clip-text text-transparent transition-all duration-300" style="font-family: 'Plus Jakarta Sans', sans-serif;">
+      <span class="text-xl font-bold text-foreground">
         Duck Shop
       </span>
     </a>
@@ -50,17 +50,17 @@
     <!-- Nav desktop -->
     {#if !searchOpen}
       <nav class="hidden items-center gap-8 md:flex" in:fly={{ x: 10, duration: 200 }} out:fly={{ x: -10, duration: 150 }}>
-        <a href="/" class="relative text-sm font-medium transition-all duration-200 hover:text-primary hover:scale-105 {$page.url.pathname === '/' ? 'text-primary' : 'text-foreground/70'}">
+        <a href="/" class="relative text-sm font-medium transition-colors duration-200 hover:text-primary {$page.url.pathname === '/' ? 'text-primary' : 'text-foreground/70'}">
           Início
-          <span class="absolute bottom-0 left-0 h-0.5 bg-linear-to-r from-primary to-accent transition-all duration-300 {$page.url.pathname === '/' ? 'w-full' : 'w-0'}"></span>
+          <span class="absolute -bottom-0.5 left-0 h-0.5 bg-primary transition-all duration-300 {$page.url.pathname === '/' ? 'w-full' : 'w-0'}"></span>
         </a>
-        <a href="/produtos" class="relative text-sm font-medium transition-all duration-200 hover:text-primary hover:scale-105 {$page.url.pathname === '/produtos' ? 'text-primary' : 'text-foreground/70'}">
+        <a href="/produtos" class="relative text-sm font-medium transition-colors duration-200 hover:text-primary {$page.url.pathname === '/produtos' ? 'text-primary' : 'text-foreground/70'}">
           Catálogo
-          <span class="absolute bottom-0 left-0 h-0.5 bg-linear-to-r from-primary to-accent transition-all duration-300 {$page.url.pathname === '/produtos' ? 'w-full' : 'w-0'}"></span>
+          <span class="absolute -bottom-0.5 left-0 h-0.5 bg-primary transition-all duration-300 {$page.url.pathname === '/produtos' ? 'w-full' : 'w-0'}"></span>
         </a>
-        <a href="/sobre" class="relative text-sm font-medium transition-all duration-200 hover:text-primary hover:scale-105 {$page.url.pathname === '/sobre' ? 'text-primary' : 'text-foreground/70'}">
+        <a href="/sobre" class="relative text-sm font-medium transition-colors duration-200 hover:text-primary {$page.url.pathname === '/sobre' ? 'text-primary' : 'text-foreground/70'}">
           Sobre
-          <span class="absolute bottom-0 left-0 h-0.5 bg-linear-to-r from-primary to-accent transition-all duration-300 {$page.url.pathname === '/sobre' ? 'w-full' : 'w-0'}"></span>
+          <span class="absolute -bottom-0.5 left-0 h-0.5 bg-primary transition-all duration-300 {$page.url.pathname === '/sobre' ? 'w-full' : 'w-0'}"></span>
         </a>
 
         <!-- Search icon -->
@@ -73,9 +73,9 @@
         </button>
 
         <!-- Cart -->
-        <a href="/carrinho" class="relative group">
-          <div class="flex items-center gap-2 rounded-full bg-primary/10 px-4 py-2 text-sm font-medium text-primary transition-all duration-300 hover:bg-primary hover:text-white hover:shadow-lg hover:shadow-primary/30 hover:scale-105">
-            <ShoppingCart size={16} weight="duotone" class="transition-transform duration-300 group-hover:rotate-12" />
+        <a href="/carrinho" class="relative">
+          <div class="flex items-center gap-2 rounded-full bg-primary/10 px-4 py-2 text-sm font-medium text-primary transition-colors duration-200 hover:bg-primary hover:text-white">
+            <ShoppingCart size={16} weight="duotone" />
           </div>
           {#if cart.totalItems > 0}
             <span

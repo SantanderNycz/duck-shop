@@ -2,7 +2,7 @@
   import { page } from '$app/stores';
   import { products } from '$lib/data/products';
   import { cart } from '$lib/stores/cart.svelte';
-  import { ShoppingCart, ArrowLeft, Check, Heart, ShareNetwork, Star, MapPin, Warning, Bird } from 'phosphor-svelte';
+  import { ShoppingCart, ArrowLeft, Check, Heart, ShareNetwork, Star, MapPin, Bird } from 'phosphor-svelte';
   import { toasts } from '$lib/stores/toast';
 
   const productId = parseInt($page.params.id!);
@@ -144,12 +144,10 @@
       </h1>
 
       <!-- Price -->
-      <div class="mb-6 flex items-baseline gap-3">
-        <span class="text-5xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+      <div class="mb-6">
+        <span class="text-5xl font-bold text-primary">
           {formatPrice(product.price)}
         </span>
-        <span class="text-lg text-muted-foreground line-through">{formatPrice(product.price * 1.3)}</span>
-        <span class="rounded-full bg-accent/10 px-3 py-1 text-sm font-semibold text-accent">-23%</span>
       </div>
 
       <!-- Stock -->
@@ -159,13 +157,6 @@
             <Check size={16} weight="bold" />
             Em stock · Pronta entrega
           </div>
-          <!-- Low-stock mock badge — shown for products with odd id as a demo -->
-          {#if product.id % 3 === 0}
-            <span class="inline-flex items-center gap-1.5 rounded-xl px-3 py-2 text-xs font-semibold animate-pulse"
-              style="background: hsl(38 92% 50% / 0.12); color: hsl(38 92% 40%); border: 1px solid hsl(38 92% 50% / 0.3)">
-              <Warning size={14} weight="duotone" /> Apenas 3 restantes!
-            </span>
-          {/if}
         {:else}
           <span class="rounded-xl px-4 py-3 text-sm font-medium w-fit block" style="background: hsl(0 100% 71% / 0.1); color: hsl(0 100% 71%); border: 1px solid hsl(0 100% 71% / 0.3)">
             Produto esgotado
@@ -228,16 +219,15 @@
         <button
           onclick={handleAddToCart}
           disabled={!product.inStock}
-          class="group relative flex w-full items-center justify-center gap-3 overflow-hidden rounded-xl px-8 py-5 text-lg font-bold text-white shadow-lg transition-all duration-300 hover:shadow-xl disabled:cursor-not-allowed disabled:opacity-50 hover:scale-[1.02] active:scale-[0.98]
-            {addedToCart ? 'bg-accent shadow-accent/30' : 'bg-gradient-to-r from-primary to-accent shadow-primary/30'}"
+          class="flex w-full items-center justify-center gap-3 rounded-xl px-8 py-4 text-base font-bold text-white shadow-md transition-colors duration-200 disabled:cursor-not-allowed disabled:opacity-50
+            {addedToCart ? 'bg-accent' : 'bg-primary hover:bg-primary/90'}"
         >
-          <div class="absolute inset-0 translate-x-[-100%] bg-gradient-to-r from-transparent via-white/20 to-transparent transition-transform duration-700 group-hover:translate-x-[100%]"></div>
           {#if addedToCart}
-            <Check size={24} weight="bold" class="relative z-10" />
-            <span class="relative z-10">Adicionado com sucesso!</span>
+            <Check size={20} weight="bold" />
+            <span>Adicionado com sucesso!</span>
           {:else}
-            <ShoppingCart size={24} weight="duotone" class="relative z-10" />
-            <span class="relative z-10">{product.inStock ? 'Adicionar ao Carrinho' : 'Produto Indisponível'}</span>
+            <ShoppingCart size={20} weight="duotone" />
+            <span>{product.inStock ? 'Adicionar ao Carrinho' : 'Produto Indisponível'}</span>
           {/if}
         </button>
 
@@ -279,7 +269,7 @@
             </div>
             <div class="p-4">
               <h3 class="mb-1 font-semibold transition-colors group-hover:text-primary line-clamp-1">{rel.name}</h3>
-              <p class="text-lg font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+              <p class="text-lg font-bold text-primary">
                 {formatPrice(rel.price)}
               </p>
             </div>

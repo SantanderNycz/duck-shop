@@ -86,7 +86,7 @@
       </p>
       <div class="flex-1"></div>
       <div class="flex items-center justify-between">
-        <span class="text-2xl font-bold bg-linear-to-r from-primary to-accent bg-clip-text text-transparent">
+        <span class="text-2xl font-bold text-primary">
           {formatPrice(product.price)}
         </span>
         {#if !product.inStock}
@@ -103,18 +103,15 @@
     <button
       onclick={handleAddToCart}
       disabled={!product.inStock}
-      class="group/btn relative flex w-full items-center justify-center gap-2 overflow-hidden rounded-xl px-4 py-3 text-sm font-semibold text-white shadow-md transition-all duration-300 hover:shadow-lg disabled:cursor-not-allowed disabled:opacity-50 hover:scale-[1.02] active:scale-[0.98]
-        {addedToCart
-          ? 'bg-accent shadow-accent/20 hover:shadow-accent/30'
-          : 'bg-linear-to-r from-primary to-primary/90 shadow-primary/20 hover:shadow-primary/30'}"
+      class="flex w-full items-center justify-center gap-2 rounded-xl px-4 py-3 text-sm font-semibold text-white shadow-sm transition-colors duration-200 disabled:cursor-not-allowed disabled:opacity-50
+        {addedToCart ? 'bg-accent' : 'bg-primary hover:bg-primary/90'}"
     >
-      <div class="absolute inset-0 -translate-x-full bg-linear-to-r from-transparent via-white/20 to-transparent transition-transform duration-700 group-hover/btn:translate-x-full"></div>
-      <ShoppingCart size={16} weight="duotone" class="relative z-10 transition-transform duration-300 group-hover/btn:rotate-12" />
-      <span class="relative z-10">
+      <ShoppingCart size={16} weight="duotone" />
+      <span>
         {#if !product.inStock}
           Indisponível
         {:else if addedToCart}
-          Adicionado! ✓
+          Adicionado ✓
         {:else}
           Adicionar ao Carrinho
         {/if}
