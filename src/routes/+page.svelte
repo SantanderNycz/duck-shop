@@ -59,18 +59,27 @@
         </div>
       </div>
 
-      <!-- Visual -->
+      <!-- Visual — product photo collage -->
       <div class="flex justify-center md:justify-end">
-        <div class="relative">
-          <div class="flex h-72 w-72 items-center justify-center rounded-[2.5rem] bg-gradient-to-br from-primary/8 to-accent/8 ring-1 ring-border md:h-80 md:w-80">
-            <span class="animate-float select-none text-[9rem]">🦆</span>
+        <div class="relative h-80 w-80 md:h-96 md:w-96">
+          <!-- Back card: rotated left -->
+          <div class="absolute left-0 top-10 h-52 w-44 overflow-hidden rounded-2xl border border-border bg-card shadow-lg" style="transform: rotate(-7deg);">
+            <img src="/bee.webp" alt="Bee Duck" class="h-full w-full object-cover object-top" />
           </div>
-          <!-- Floating cards -->
-          <div class="absolute -right-5 top-6 rounded-2xl border border-border bg-card px-4 py-3 shadow-lg">
+          <!-- Back card: rotated right -->
+          <div class="absolute right-0 bottom-6 h-48 w-40 overflow-hidden rounded-2xl border border-border bg-card shadow-lg" style="transform: rotate(6deg);">
+            <img src="/shakespeare.webp" alt="Shakespeare Duck" class="h-full w-full object-cover object-top" />
+          </div>
+          <!-- Main card: front, centered -->
+          <div class="absolute left-14 top-6 h-60 w-52 overflow-hidden rounded-2xl border border-border bg-card shadow-2xl shadow-primary/10">
+            <img src="/beetleduck.jfif" alt="BeetleDuck" class="h-full w-full object-cover object-top" />
+          </div>
+          <!-- Floating stats -->
+          <div class="absolute -right-4 top-0 rounded-2xl border border-border bg-card px-4 py-3 shadow-lg">
             <p class="text-xs text-muted-foreground">Avaliação média</p>
             <p class="text-xl font-bold">4.9 ⭐</p>
           </div>
-          <div class="absolute -left-5 bottom-10 rounded-2xl border border-border bg-card px-4 py-3 shadow-lg">
+          <div class="absolute -left-4 bottom-2 rounded-2xl border border-border bg-card px-4 py-3 shadow-lg">
             <p class="text-xs text-muted-foreground">Patos disponíveis</p>
             <p class="text-xl font-bold">{products.length}+</p>
           </div>

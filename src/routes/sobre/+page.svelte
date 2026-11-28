@@ -8,7 +8,7 @@
 </svelte:head>
 
 <!-- Hero -->
-<section class="relative overflow-hidden border-b border-border/40 bg-gradient-to-br from-background via-primary/5 to-accent/5 py-24">
+<section class="border-b border-border/40 py-24">
   <div class="container mx-auto px-4 text-center max-w-3xl">
     <div class="mb-6 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-4 py-2 text-sm font-medium text-primary">
       <MapPin size={16} weight="duotone" />
@@ -17,7 +17,7 @@
     <h1 class="mb-6 text-5xl font-extrabold tracking-tight md:text-6xl" style="font-family: 'Plus Jakarta Sans', sans-serif;">
       Mais do que um pato.
       <br />
-      <span class="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+      <span class="text-primary">
         Uma personalidade.
       </span>
     </h1>
@@ -50,7 +50,7 @@
           </div>
         </div>
         <div class="relative">
-          <div class="rounded-3xl bg-gradient-to-br from-primary/10 to-accent/10 p-12 text-center border border-border/50">
+          <div class="rounded-3xl bg-muted/40 p-12 text-center border border-border/50">
             <div class="mb-4 flex justify-center text-primary animate-float">
               <Bird size={96} weight="duotone" />
             </div>
@@ -65,7 +65,7 @@
 </section>
 
 <!-- Porquê um pato? -->
-<section class="border-t border-border/40 bg-gradient-to-br from-muted/30 to-background py-20">
+<section class="border-t border-border/40 bg-muted/20 py-20">
   <div class="container mx-auto px-4">
     <div class="mx-auto max-w-4xl">
       <div class="grid gap-12 md:grid-cols-2 items-center">
@@ -115,7 +115,7 @@
 </section>
 
 <!-- Valores -->
-<section class="border-t border-border/40 bg-gradient-to-br from-muted/30 to-background py-20">
+<section class="border-t border-border/40 bg-muted/20 py-20">
   <div class="container mx-auto px-4">
     <div class="mb-12 text-center">
       <h2 class="text-3xl font-bold md:text-4xl" style="font-family: 'Plus Jakarta Sans', sans-serif;">
@@ -168,7 +168,7 @@
     </p>
     <a
       href="/produtos"
-      class="group inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-primary to-accent px-8 py-4 text-base font-semibold text-white shadow-lg shadow-primary/30 transition-all duration-300 hover:shadow-xl hover:shadow-primary/40 hover:scale-105"
+      class="inline-flex items-center gap-2 rounded-xl bg-primary px-8 py-4 text-base font-semibold text-white shadow-md transition-colors duration-200 hover:bg-primary/90"
     >
       Ver Catálogo Completo
       <ArrowRight size={20} weight="bold" class="transition-transform group-hover:translate-x-1" />

@@ -46,7 +46,7 @@
 
   {#if cart.items.length === 0}
     <div class="flex flex-col items-center justify-center rounded-3xl border-2 border-dashed border-border bg-muted/30 py-20 text-center">
-      <div class="mb-6 flex h-24 w-24 items-center justify-center rounded-full bg-gradient-to-br from-primary/20 to-accent/20">
+      <div class="mb-6 flex h-24 w-24 items-center justify-center rounded-full bg-primary/10">
         <ShoppingBag size={48} weight="duotone" class="text-primary" />
       </div>
       <h2 class="mb-3 text-2xl font-bold">O teu carrinho está vazio</h2>
@@ -55,7 +55,7 @@
       </p>
       <a
         href="/produtos"
-        class="group inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-primary to-accent px-8 py-4 font-semibold text-white shadow-lg shadow-primary/30 transition-all duration-300 hover:shadow-xl hover:shadow-primary/40 hover:scale-105"
+        class="inline-flex items-center gap-2 rounded-xl bg-primary px-8 py-4 font-semibold text-white shadow-md transition-colors duration-200 hover:bg-primary/90"
       >
         <span>Ver Catálogo</span>
         <ArrowRight size={20} weight="bold" class="transition-transform group-hover:translate-x-1" />
@@ -93,7 +93,7 @@
                     <Tag size={12} weight="regular" />
                     {item.product.category}
                   </p>
-                  <p class="text-lg font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+                  <p class="text-lg font-bold text-primary">
                     {formatPrice(item.product.price * item.quantity)}
                   </p>
                   {#if item.quantity > 1}
@@ -185,9 +185,9 @@
       <!-- Order summary -->
       <div class="lg:col-span-1">
         <div class="sticky top-24 overflow-hidden rounded-2xl border border-border bg-card shadow-xl">
-          <div class="bg-gradient-to-r from-primary to-accent p-6">
-            <h2 class="text-2xl font-bold text-white" style="font-family: 'Plus Jakarta Sans', sans-serif;">
-              Resumo do Pedido
+          <div class="border-b border-border p-6">
+            <h2 class="text-xl font-bold" style="font-family: 'Plus Jakarta Sans', sans-serif;">
+              Resumo do pedido
             </h2>
           </div>
 
@@ -212,7 +212,7 @@
             <div class="mb-6 border-t border-border pt-4">
               <div class="flex justify-between text-xl font-bold">
                 <span>Total</span>
-                <span class="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+                <span class="text-primary">
                   {formatPrice(total)}
                 </span>
               </div>
@@ -227,13 +227,10 @@
             <button
               disabled
               title="Checkout em breve"
-              class="group relative mb-4 flex w-full cursor-not-allowed items-center justify-center gap-2 overflow-hidden rounded-xl bg-gradient-to-r from-primary to-accent px-6 py-4 text-lg font-bold text-white shadow-lg shadow-primary/20 opacity-70"
+              class="mb-4 flex w-full cursor-not-allowed items-center justify-center gap-2 rounded-xl bg-primary px-6 py-4 text-base font-bold text-white shadow-md shadow-primary/20 opacity-50"
             >
               <span>Finalizar Compra</span>
               <ArrowRight size={20} weight="bold" />
-              <span class="absolute -bottom-0 left-1/2 -translate-x-1/2 translate-y-full pb-1 text-xs font-normal opacity-0 group-hover:opacity-100 transition-opacity">
-                Em breve
-              </span>
             </button>
 
             <a

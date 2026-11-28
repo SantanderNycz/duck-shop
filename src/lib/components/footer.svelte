@@ -13,7 +13,7 @@
   }
 </script>
 
-<footer class="relative border-t border-border/40 bg-gradient-to-br from-muted/40 to-background">
+<footer class="border-t border-border/40 bg-muted/20">
   <div class="container mx-auto px-4 py-16">
     <div class="grid gap-12 md:grid-cols-4">
       <!-- Brand -->
@@ -22,7 +22,7 @@
           <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-primary to-accent shadow-lg">
             <img src="/duck.svg" alt="Duck Shop" class="h-11 w-11" />
           </div>
-          <span class="text-xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent" style="font-family: 'Plus Jakarta Sans', sans-serif;">
+          <span class="text-xl font-bold text-foreground" style="font-family: 'Plus Jakarta Sans', sans-serif;">
             Duck Shop
           </span>
         </div>
@@ -36,13 +36,13 @@
 
         <!-- Socials -->
         <div class="flex gap-3">
-          <a href="https://www.facebook.com/duckshop" aria-label="Facebook" class="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary transition-all duration-300 hover:bg-primary hover:text-white hover:scale-110">
+          <a href="https://www.facebook.com/duckshop" aria-label="Facebook" class="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary transition-colors duration-200 hover:bg-primary hover:text-white">
             <FacebookLogo size={20} weight="fill" />
           </a>
-          <a href="https://www.instagram.com/duckshop" aria-label="Instagram" class="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary transition-all duration-300 hover:bg-primary hover:text-white hover:scale-110">
+          <a href="https://www.instagram.com/duckshop" aria-label="Instagram" class="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary transition-colors duration-200 hover:bg-primary hover:text-white">
             <InstagramLogo size={20} weight="fill" />
           </a>
-          <a href="mailto:contato@duckshop.com" aria-label="Email" class="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary transition-all duration-300 hover:bg-primary hover:text-white hover:scale-110">
+          <a href="mailto:contato@duckshop.com" aria-label="Email" class="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary transition-colors duration-200 hover:bg-primary hover:text-white">
             <EnvelopeSimple size={20} weight="regular" />
           </a>
         </div>
