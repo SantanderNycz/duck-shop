@@ -3,7 +3,7 @@
   import Header from '$lib/components/header.svelte';
   import Footer from '$lib/components/footer.svelte';
   import Toast from '$lib/components/toast.svelte';
-  import { navigating } from '$app/stores';
+  import { page } from '$app/stores';
   import { fade } from 'svelte/transition';
 
   let { children } = $props();
@@ -12,8 +12,8 @@
 <div class="flex min-h-screen flex-col">
   <Header />
   <main class="flex-1">
-    {#key $navigating?.to?.url.pathname ?? 'home'}
-      <div in:fade={{ duration: 180, delay: 80 }} out:fade={{ duration: 100 }}>
+    {#key $page.url.pathname}
+      <div in:fade={{ duration: 150 }} out:fade={{ duration: 80 }}>
         {@render children()}
       </div>
     {/key}

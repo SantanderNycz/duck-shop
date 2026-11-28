@@ -1,5 +1,4 @@
 import type { Product, CartItem } from "$lib/types";
-import { writable } from "svelte/store";
 import { browser } from "$app/environment";
 
 const STORAGE_KEY = "duck-shop-cart";
@@ -18,72 +17,60 @@ function saveToStorage(items: CartItem[]) {
   if (!browser) return;
   try {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(items));
-  } catch {
-    // storage full or blocked — silently ignore
-  }
+  } catch {}
 }
 
-class CartStore {
-  items: any;
+let items = $state<CartItem[]>(loadFromStorage());
 
-  constructor() {
-    this.items = writable(loadFromStorage());
+function removeItem(productId: number) {
+  items = items.filter((i) => i.product.id !== productId);
+  saveToStorage(items);
+}
 
-    // Persist every change to localStorage
-    this.items.subscribe((items: CartItem[]) => {
-      saveToStorage(items);
-    });
-  }
+export const cart = {
+  get items() {
+    return items;
+  },
 
-  get totalItems(): number {
-    let sum = 0;
-    this.items.subscribe((items: CartItem[]) => {
-      sum = items.reduce((acc, item) => acc + item.quantity, 0);
-    })();
-    return sum;
-  }
+  get totalItems() {
+    return items.reduce((acc, item) => acc + item.quantity, 0);
+  },
 
-  get totalPrice(): number {
-    let sum = 0;
-    this.items.subscribe((items: CartItem[]) => {
-      sum = items.reduce(
-        (acc, item) => acc + item.product.price * item.quantity,
-        0
-      );
-    })();
-    return sum;
-  }
-
-  addItem(product: Product): void {
-    this.items.update((items: CartItem[]) => {
-      const existing = items.find((i) => i.product.id === product.id);
-      if (existing) {
-        existing.quantity++;
-        return items;
-      }
-      return [...items, { product, quantity: 1 }];
-    });
-  }
-
-  removeItem(productId: number): void {
-    this.items.update((items: CartItem[]) =>
-      items.filter((i) => i.product.id !== productId)
+  get totalPrice() {
+    return items.reduce(
+      (acc, item) => acc + item.product.price * item.quantity,
+      0
     );
-  }
+  },
 
-  updateQuantity(productId: number, quantity: number): void {
-    this.items.update((items: CartItem[]) => {
-      const item = items.find((i) => i.product.id === productId);
-      if (!item) return items;
-      if (quantity <= 0) return items.filter((i) => i.product.id !== productId);
+  addItem(product: Product) {
+    const existing = items.find((i) => i.product.id === product.id);
+    if (existing) {
+      existing.quantity++;
+    } else {
+      items = [...items, { product, quantity: 1 }];
+    }
+    saveToStorage(items);
+  },
+
+  removeItem(productId: number) {
+    removeItem(productId);
+  },
+
+  updateQuantity(productId: number, quantity: number) {
+    if (quantity <= 0) {
+      removeItem(productId);
+      return;
+    }
+    const item = items.find((i) => i.product.id === productId);
+    if (item) {
       item.quantity = quantity;
-      return items;
-    });
-  }
+      saveToStorage(items);
+    }
+  },
 
-  clearCart(): void {
-    this.items.set([]);
-  }
-}
-
-export const cart = new CartStore();
+  clearCart() {
+    items = [];
+    saveToStorage(items);
+  },
+};
