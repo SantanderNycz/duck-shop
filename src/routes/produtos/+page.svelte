@@ -69,11 +69,11 @@
   );
 
   const categoryColors: Record<string, string> = {
-    'Tech & Geek': 'border-blue-200 text-blue-700 data-[active=true]:bg-blue-600 data-[active=true]:text-white data-[active=true]:border-blue-600',
-    'Personagens':  'border-violet-200 text-violet-700 data-[active=true]:bg-violet-600 data-[active=true]:text-white data-[active=true]:border-violet-600',
-    'Animais':      'border-emerald-200 text-emerald-700 data-[active=true]:bg-emerald-600 data-[active=true]:text-white data-[active=true]:border-emerald-600',
-    'Festividades': 'border-orange-200 text-orange-700 data-[active=true]:bg-orange-500 data-[active=true]:text-white data-[active=true]:border-orange-500',
-    'Portugal':     'border-red-200 text-red-700 data-[active=true]:bg-red-600 data-[active=true]:text-white data-[active=true]:border-red-600',
+    'Tech & Geek': 'border-border text-muted-foreground data-[active=true]:bg-primary data-[active=true]:text-white data-[active=true]:border-primary',
+    'Personagens':  'border-border text-muted-foreground data-[active=true]:bg-primary data-[active=true]:text-white data-[active=true]:border-primary',
+    'Animais':      'border-border text-muted-foreground data-[active=true]:bg-primary data-[active=true]:text-white data-[active=true]:border-primary',
+    'Festividades': 'border-border text-muted-foreground data-[active=true]:bg-primary data-[active=true]:text-white data-[active=true]:border-primary',
+    'Portugal':     'border-border text-muted-foreground data-[active=true]:bg-primary data-[active=true]:text-white data-[active=true]:border-primary',
   };
 </script>
 

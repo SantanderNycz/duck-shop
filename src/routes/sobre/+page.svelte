@@ -71,9 +71,9 @@
       <div class="grid gap-12 md:grid-cols-2 items-center">
         <div class="rounded-3xl border border-border/50 bg-card p-8 shadow-sm">
           <div class="mb-4 flex items-center gap-2 text-muted-foreground">
-            <Bug size={32} weight="duotone" class="text-orange-500" />
+            <Bug size={32} weight="duotone" class="text-muted-foreground" />
             <ArrowRight size={18} weight="bold" />
-            <CheckCircle size={32} weight="duotone" class="text-emerald-500" />
+            <CheckCircle size={32} weight="duotone" class="text-accent" />
           </div>
           <h3 class="mb-3 text-xl font-bold">O que é o Rubber Duck Debugging?</h3>
           <p class="text-muted-foreground leading-relaxed">
@@ -142,7 +142,7 @@
         </p>
       </div>
       <div class="rounded-2xl border border-border/50 bg-card p-8 shadow-sm text-center transition-all hover:shadow-lg hover:-translate-y-1 duration-300">
-        <div class="mb-5 mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-red-100 text-red-600">
+        <div class="mb-5 mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-primary/10 text-primary">
           <Heart size={32} weight="duotone" />
         </div>
         <h3 class="mb-3 text-xl font-bold">Comunidade</h3>

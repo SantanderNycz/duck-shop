@@ -6,11 +6,11 @@
   const featured = products.filter(p => p.inStock).slice(0, 6);
 
   const categories = [
-    { name: 'Tech & Geek', icon: Laptop,    iconColor: 'text-blue-500',    desc: 'Para developers e geeks' },
-    { name: 'Personagens',  icon: Crown,     iconColor: 'text-violet-500',  desc: 'Ícones pop culture' },
-    { name: 'Animais',      icon: Butterfly, iconColor: 'text-emerald-500', desc: 'O reino animal' },
-    { name: 'Festividades', icon: Gift,      iconColor: 'text-orange-500',  desc: 'Edições sazonais' },
-    { name: 'Portugal',     icon: Flag,      iconColor: 'text-red-500',     desc: 'Orgulhosamente PT' },
+    { name: 'Tech & Geek', icon: Laptop,    iconColor: 'text-primary',      desc: 'Para developers e geeks' },
+    { name: 'Personagens',  icon: Crown,     iconColor: 'text-accent',       desc: 'Ícones pop culture' },
+    { name: 'Animais',      icon: Butterfly, iconColor: 'text-primary',      desc: 'O reino animal' },
+    { name: 'Festividades', icon: Gift,      iconColor: 'text-accent',       desc: 'Edições sazonais' },
+    { name: 'Portugal',     icon: Flag,      iconColor: 'text-primary',      desc: 'Orgulhosamente PT' },
   ].map(c => ({
     ...c,
     count: products.filter(p => p.category === c.name).length,
@@ -228,7 +228,7 @@
         </div>
 
         <div class="flex gap-5">
-          <div class="mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-red-50 text-red-500">
+          <div class="mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-muted text-muted-foreground">
             <UsersThree size={20} weight="duotone" />
           </div>
           <div>

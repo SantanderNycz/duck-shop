@@ -199,7 +199,7 @@
               </div>
               <div class="flex justify-between text-sm">
                 <span class="text-muted-foreground">Envio</span>
-                <span class="font-semibold text-emerald-600">Grátis</span>
+                <span class="font-semibold text-primary">Grátis</span>
               </div>
               {#if couponApplied}
                 <div class="flex justify-between text-sm">

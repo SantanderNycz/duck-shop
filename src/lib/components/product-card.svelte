@@ -20,17 +20,7 @@
     setTimeout(() => { addedToCart = false; }, 1800);
   }
 
-  const categoryStyles: Record<string, string> = {
-    'Tech & Geek': 'bg-blue-100 text-blue-700',
-    'Personagens':  'bg-violet-100 text-violet-700',
-    'Animais':      'bg-emerald-100 text-emerald-700',
-    'Festividades': 'bg-orange-100 text-orange-700',
-    'Portugal':     'bg-red-100 text-red-700',
-  };
-
-  const badgeClass = $derived(
-    categoryStyles[product.category] ?? 'bg-slate-100 text-slate-700'
-  );
+  const badgeClass = 'bg-muted/80 text-muted-foreground';
 </script>
 
 <div class="group relative overflow-hidden rounded-2xl border border-border/50 bg-card shadow-sm transition-all duration-500 hover:shadow-2xl hover:shadow-primary/10 hover:border-primary/30 hover:-translate-y-1 flex flex-col h-full">
